@@ -1,8 +1,13 @@
+import { aleatorio } from "aleatorio.js";
+import { perguntas } from "perguntas.js";
+
+
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const botaoJogarNovamente-document.querySelector
 
 
 
@@ -14,8 +19,8 @@ let historiaFinal = "";
 function mostraPergunta() {
     if(atual >= perguntas.length){
         mostraResultado();
-        return;
-    }
+        return
+
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
@@ -39,24 +44,15 @@ function respostaSelecionada(opcaoSelecionada){
 }
 
 function mostraResultado(){
-    caixaPerguntas.textContent = "Em 2049...";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = ""; 
-}
+    caixaPerguntas.textContent = "em 2049...";
+        textoResultado.textContent = historiaFinal;
+        caixaAlternativas.textContent = "";
+        botaoJogarNovamente.addEventListener("click", JogaNovamente())
+    }
 
-
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
-historiaFinal += afirmacoes + “ “;
-atual++;
-mostraPergunta();
-}
-
-mostraPergunta();
-
-function respostaSelecionada(opcaoSelecionada){
-        const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
-        historiaFinal += afirmacoes + " ";
-        atual++;
+    function JogarNovamente(){
+        atual=0;
+        historiaFinal ="";
         mostraPergunta();
-}
+    }
+    mostraPergunta();
